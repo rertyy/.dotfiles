@@ -62,7 +62,7 @@ set relativenumber
 
 " vim is optimized for keyboard-only, but if you insist on using mouse,
 " uncomment the following
-set mouse+=a
+" set mouse+=a
 
 " Switch between buffers without saving
 " set hidden
@@ -82,7 +82,7 @@ set lazyredraw
 
 " Keep a backup copy of the file being edited
 set backup
-set backupdir=~/.backup
+set backupdir=~/.vim/files/backup
 
 " Save undo history
 set undofile
@@ -94,7 +94,7 @@ set wrapscan
 set hlsearch
 set ignorecase
 set smartcase
-nnoremap <silent> <esc> :noh<cr><esc>
+nnoremap <silent> <esc> :nohl<cr><esc>
 
 " Use system clipboard
 set clipboard^=unnamed,unnamedplus
@@ -177,4 +177,29 @@ if has("autocmd")
     autocmd BufWritePre * :call CleanExtraSpaces()
 endif
 
+
+
+""""""""""""" Statusline
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#Normal#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
 

@@ -9,4 +9,7 @@ alias mountpdc="sshfs -o allow_other e0958630@soctf-pdc-009.d1.comp.nus.edu.sg:/
 alias mountdebug="sshfs -odebug,sshfs_debug,logleve=debug  e0958630@soctf-pdc-009.d1.comp.nus.edu.sg:/nfs/home/e0958630/ /home/ian/pdc"
 alias sumatra="SumatraPDF.exe"
 alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+# alias tmux='systemd-run --scope --user tmux'
 # alias bat="bat --pager=never"
+
+# alias nvcc="/usr/local/cuda/bin/nvcc"
