@@ -37,3 +37,5 @@ export PATH=$PATH:/usr/local/go/bin
 
 # opam configuration
 test -r /home/ian/.opam/opam-init/init.sh && . /home/ian/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+[ -f "/home/ian/.ghcup/env" ] && . "/home/ian/.ghcup/env" # ghcup-env

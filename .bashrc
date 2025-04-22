@@ -118,20 +118,17 @@ fi
 # Uses bat as the pager for man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR=nvim
+export BROWSER=w3m
 
 # nvim
-export PATH="$PATH:/opt/nvim/"
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 # for perf
 export PATH="/usr/lib/linux-tools/5.15.0-122-generic/:$PATH"
 export PATH="/usr/local/cuda/bin:$PATH"
+export PATH="~/apps/:$PATH"
 
 # cargo
 . "$HOME/.cargo/env"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -162,3 +159,11 @@ function y() {
 #### For xserver for UI forwarding. Note that these aren't necessary if wslg is sufficient
 ## To allow X11 forwarding from local to pe nodes
 # export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+#
+#
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+
+[ -f "/home/ian/.ghcup/env" ] && . "/home/ian/.ghcup/env" # ghcup-env
+export PATH="$HOME/.ghcup/bin:$PATH"
+
