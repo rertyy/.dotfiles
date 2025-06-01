@@ -118,7 +118,7 @@ fi
 # Uses bat as the pager for man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR=nvim
-export BROWSER=w3m
+export BROWSER=~/.local/bin/firefox
 
 # nvim
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
@@ -166,4 +166,3 @@ function y() {
 
 [ -f "/home/ian/.ghcup/env" ] && . "/home/ian/.ghcup/env" # ghcup-env
 export PATH="$HOME/.ghcup/bin:$PATH"
-
