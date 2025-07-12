@@ -1,7 +1,6 @@
 alias forti="sudo openfortivpn webvpn.comp.nus.edu.sg:443 -u e0958630"
 alias update="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y"
 alias updateapp="pyenv update && rustup update && pnpm update -g"
-# update go, rg, lg, fzf, bat, fd, yazi
 
 alias nvimdiff="nvim -d"
 alias lg=lazygit
@@ -19,7 +18,7 @@ alias lazy="NVIM_APPNAME=lazyvim nvim"
 alias astro="NVIM_APPNAME=astronvim nvim"
 
 alias mountpdc="sshfs -o allow_other e0958630@soctf-pdc-009.d1.comp.nus.edu.sg:/nfs/home/e0958630/ ~/pdc"
-alias mountdebug="sshfs -odebug,sshfs_debug,logleve=debug  e0958630@soctf-pdc-009.d1.comp.nus.edu.sg:/nfs/home/e0958630/ /home/ian/pdc"
+alias mountdebug="sshfs -odebug,sshfs_debug,loglevel=debug  e0958630@soctf-pdc-009.d1.comp.nus.edu.sg:/nfs/home/e0958630/ /home/ian/pdc"
 
 alias sumatra="SumatraPDF.exe"
 alias fzfp="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
@@ -33,7 +32,6 @@ alias ccfs="codecrafters submit"
 # alias nvcc="/usr/local/cuda/bin/nvcc"
 
 # Git aliases
-
 function gc() {
   if [ $# -eq 0 ]; then
     echo "Usage: gc [-b] <branch-name>"
@@ -66,6 +64,7 @@ function gc() {
   fi
 }
 
+# Rather than editing git config
 alias gcb="git checkout -b"
 alias gb="git branch"
 alias gf="git fetch"

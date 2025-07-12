@@ -12,30 +12,16 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
+if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-
-eval "$(zoxide init bash)"
-eval "$(fzf --bash)"
-
-. "$HOME/.cargo/env"
-
-export PATH=$PATH:/usr/local/go/bin
-
-
-# opam configuration
-test -r /home/ian/.opam/opam-init/init.sh && . /home/ian/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
-[ -f "/home/ian/.ghcup/env" ] && . "/home/ian/.ghcup/env" # ghcup-env

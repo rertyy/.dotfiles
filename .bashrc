@@ -115,6 +115,10 @@ if ! shopt -oq posix; then
     fi
 fi
 
+# =======================================================
+# =======================================================
+# =======================================================
+
 # Uses bat as the pager for man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR=nvim
@@ -126,13 +130,12 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="/usr/lib/linux-tools/5.15.0-122-generic/:$PATH"
 export PATH="/usr/local/cuda/bin:$PATH"
 export PATH="~/apps/:$PATH"
-
-# cargo
-. "$HOME/.cargo/env"
+export PATH=$PATH:/usr/local/go/bin
 
 # java (for jdtls)
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
+. "$HOME/.cargo/env"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -156,17 +159,23 @@ function y() {
     rm -f -- "$tmp"
 }
 
-## To use VcXsrv, but breaks vim in pe nodes somehow
+# opam configuration
+test -r /home/ian/.opam/opam-init/init.sh && . /home/ian/.opam/opam-init/init.sh >/dev/null 2>/dev/null || true
+
+## (Unneeded) To use VcXsrv, but breaks vim in pe nodes somehow
 # export DISPLAY=$(ip route list default | awk '{print $3}'):0
 # export LIBGL_ALWAYS_INDIRECT=1
-#
+
 #### For xserver for UI forwarding. Note that these aren't necessary if wslg is sufficient
 ## To allow X11 forwarding from local to pe nodes
 # export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
-#
-#
+
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
 
 [ -f "/home/ian/.ghcup/env" ] && . "/home/ian/.ghcup/env" # ghcup-env
 export PATH="$HOME/.ghcup/bin:$PATH"
+
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
+eval "$(fzf --bash)"
