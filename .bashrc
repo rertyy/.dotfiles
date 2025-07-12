@@ -130,6 +130,10 @@ export PATH="~/apps/:$PATH"
 # cargo
 . "$HOME/.cargo/env"
 
+# java (for jdtls)
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
